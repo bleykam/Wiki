@@ -1,5 +1,5 @@
 {% extends "encyclopedia/layout.html" %}
-
+{% csrf_token %}
 {% block title %}
     Encyclopedia
 {% endblock %}
@@ -9,7 +9,7 @@
 
     <ul>
         {% for entry in entries %}
-            <li>{{ entry }}</li>
+            <a href="{% url 'entry' entry %}"><li>{{ entry }}</li></a>
         {% endfor %}
     </ul>
 

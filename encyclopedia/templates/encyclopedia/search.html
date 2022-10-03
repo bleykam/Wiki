@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+{% csrf_token %}
+{% block title %}
+   <h1> You searched for {{title}}</h1>
+{% endblock %}
+
+{% block body %}
+ <h1> You searched for {{title}}</h1>
+
+<h3>Search Results:</h3>
+
+
+    <ul>
+        {% for result in content %}
+            <a href="{% url 'entry' result %}"><li>{{ result }}</li></a>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
